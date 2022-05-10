@@ -1,0 +1,98 @@
+= Vert.x-JsonPath
+:toc: left
+
+Vert.x-JsonPath is a _very_ basic implementation of https://goessner.net/articles/JsonPath/[JsonPath] using Vert.x's `JsonObject` and `JsonArray`, mimicking their `getX`, `containsKey`, `put` and `remove` methods. Only three operators are supported at the moment (`$`, `.`, and `[]`).
+
+This is *not* an implementation of https://tools.ietf.org/html/rfc6901[RFC6901]. Vert.x core already contains an implementation of RFC6901.
+
+== Quick Start
+
+Consider the following json:
+
+[source,json]
+----
+{
+  "name": {
+    "first": "Max",
+    "last": "Mustermann",
+    "nicknames": ["Maxi", "Mustermax"]
+  },
+  "contact": {
+    "address": {
+      "home": {
+        "street": "Memory Lane",
+        "number": 16,
+        "verified": "1984-05-27T00:01:02.034Z"
+      }
+    }
+  },
+  "some.dotted.key": "fnord",
+  "subscriptions": [
+    { "active": true, "sid": "1234567", "created": "2020-01-14T16:31:11.425Z" },
+    { "active": false, "sid": "8472232", "created": "2018-06-14T17:21:51.438Z" },
+    { "active": true, "sid": "9362444", "created": "2019-01-14T07:48:15.821Z" }
+  ]
+}
+----
+
+There are `getX` methods for all Vert.x types:
+
+[source,java]
+----
+JsonPath.getString(json, "$.name.first") // "Max"
+JsonPath.getString(json, "$.name.greeting", "Hello") // "Hello" (provided as default value)
+JsonPath.getInteger(json, "$.contact.address.home.number") // 16
+JsonPath.getInstant(json, "$.contact.address.home.verified") // "1984-05-27T00:01:02.034Z"
+JsonPath.getJsonArray(json, "$.name.nicknames") // ["Maxi", "Mustermax"]
+JsonPath.getJsonObject(json, "$.subscriptions[0]") // { "active": true, "sid": "1234567" ... }
+// etc.
+----
+
+Dotted keys are supported (e.g. `$.['some.dotted.key']`):
+
+[source,java]
+----
+JsonPath.getString(json, "$.['some.dotted.key']") // "fnord"
+----
+
+Also the `containsKey` method is provided:
+
+[source,java]
+----
+JsonPath.containsKey(json, "$.name.nicknames") // true
+JsonPath.containsKey(json, "$.foo.bar.eek") // false
+----
+
+The object can be updated using `put`:
+
+[source,java]
+----
+JsonPath.put(json, "$.name.first", "Robert");
+JsonPath.put(json, "$.subscriptions[2].active", false);
+----
+
+Keys can be removed using `remove` (not yet implemented for arrays):
+
+[source,java]
+----
+JsonPath.remove(json, "$.name.nicknames");
+JsonPath.remove(json, "$.subscriptions[2].active");
+----
+
+All of the above also works with `JsonArrays`:
+
+[source,json]
+----
+[
+  {"foo": "bar"},
+  [1, 2, 3]
+]
+----
+
+[source,java]
+----
+JsonPath.getString(jsonarr, "$[0].foo") // "bar"
+JsonPath.getInteger(jsonarr, "$[1][2]") // 3
+JsonPath.containsKey(jsonarr, "$[0].foo") // true
+JsonPath.put(jsonarr, "$[0].foo", "eek");
+----
