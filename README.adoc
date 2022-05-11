@@ -1,10 +1,8 @@
-
+image:https://github.com/NoEnv/vertx-jsonpath/actions/workflows/ci.yml/badge.svg["Build Status",link="https://github.com/NoEnv/vertx-jsonpath/actions/workflows/ci.yml"]
+image:https://codecov.io/gh/NoEnv/vertx-jsonpath/branch/master/graph/badge.svg["Code Coverage",link="https://codecov.io/gh/NoEnv/vertx-jsonpath"]
+image:https://badgen.net/maven/v/maven-central/com.noenv/vertx-jsonpath["Maven Central",link="https://search.maven.org/artifact/com.noenv/vertx-jsonpath"]
 
 = Vert.x-JsonPath
-
-:img-build-status: https://github.com/NoEnv/vertx-jsonpath/actions/workflows/ci.yml/badge.svg
-:uri-build-status: https://github.com/NoEnv/vertx-jsonpath/actions/workflows/ci.yml
-image:{img-build-status}[build,link={uri-build-status}]
 
 Vert.x-JsonPath is a _very_ basic implementation of https://goessner.net/articles/JsonPath/[JsonPath] using Vert.x's `JsonObject` and `JsonArray`, mimicking their `getX`, `containsKey`, `put` and `remove` methods. Only three operators are supported at the moment (`$`, `.`, and `[]`).
 
