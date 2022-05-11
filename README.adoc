@@ -1,10 +1,36 @@
+
+
 = Vert.x-JsonPath
+
+:img-build-status: https://github.com/NoEnv/vertx-jsonpath/actions/workflows/ci.yml/badge.svg
+:uri-build-status: https://github.com/NoEnv/vertx-jsonpath/actions/workflows/ci.yml
+image:{img-build-status}[build,link={uri-build-status}]
 
 Vert.x-JsonPath is a _very_ basic implementation of https://goessner.net/articles/JsonPath/[JsonPath] using Vert.x's `JsonObject` and `JsonArray`, mimicking their `getX`, `containsKey`, `put` and `remove` methods. Only three operators are supported at the moment (`$`, `.`, and `[]`).
 
 This is *not* an implementation of https://tools.ietf.org/html/rfc6901[RFC6901]. Vert.x core already contains an implementation of RFC6901.
 
 == Quick Start
+
+To use Vert.x JsonPath, add the following dependency:
+
+* Maven (in your `pom.xml`):
+
+[source,xml,subs="+attributes"]
+----
+<dependency>
+  <groupId>com.noenv</groupId>
+  <artifactId>vertx-jsonpath</artifactId>
+  <version>3.9.13</version>
+</dependency>
+----
+
+* Gradle (in your `build.gradle` file):
+
+[source,groovy,subs="+attributes"]
+----
+compile 'com.noenv:vertx-jsonpath:3.9.13'
+----
 
 Consider the following json:
 
