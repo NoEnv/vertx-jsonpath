@@ -4,7 +4,7 @@
 
   <groupId>com.noenv</groupId>
   <artifactId>vertx-jsonpath</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>4.2.7</version>
 
   <parent>
     <groupId>io.vertx</groupId>
@@ -17,7 +17,7 @@
   <url>http://github.com/NoEnv/vertx-jsonpath</url>
 
   <properties>
-    <stack.version>4.3.0-SNAPSHOT</stack.version>
+    <stack.version>4.2.7</stack.version>
   </properties>
 
 
