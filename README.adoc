@@ -1,5 +1,5 @@
 image:https://github.com/NoEnv/vertx-jsonpath/actions/workflows/ci.yml/badge.svg["Build Status",link="https://github.com/NoEnv/vertx-jsonpath/actions/workflows/ci.yml"]
-image:https://codecov.io/gh/NoEnv/vertx-jsonpath/branch/master/graph/badge.svg["Code Coverage",link="https://codecov.io/gh/NoEnv/vertx-jsonpath"]
+image:https://codecov.io/gh/NoEnv/vertx-jsonpath/branch/main/graph/badge.svg["Code Coverage",link="https://codecov.io/gh/NoEnv/vertx-jsonpath"]
 image:https://badgen.net/maven/v/maven-central/com.noenv/vertx-jsonpath["Maven Central",link="https://search.maven.org/artifact/com.noenv/vertx-jsonpath"]
 
 = Vert.x-JsonPath
