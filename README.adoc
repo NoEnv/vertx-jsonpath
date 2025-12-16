@@ -20,7 +20,7 @@ To use Vert.x JsonPath, add the following dependency:
 <dependency>
   <groupId>com.noenv</groupId>
   <artifactId>vertx-jsonpath</artifactId>
-  <version>4.5.22</version>
+  <version>4.5.23</version>
 </dependency>
 ----
 
@@ -28,7 +28,7 @@ To use Vert.x JsonPath, add the following dependency:
 
 [source,groovy,subs="+attributes"]
 ----
-compile 'com.noenv:vertx-jsonpath:4.5.22'
+compile 'com.noenv:vertx-jsonpath:4.5.23'
 ----
 
 Consider the following json:
